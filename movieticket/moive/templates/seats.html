@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Your Seats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f5f5f5;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    .category {
+      margin: 30px 0;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .row {
+      display: flex;
+      margin: 5px 0;
+    }
+
+    .seat {
+      width: 30px;
+      height: 30px;
+      margin: 3px;
+      border: 2px solid green;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      background-color: white;
+      color: green;
+    }
+
+    .seat.selected {
+      background-color: green;
+      color: white;
+    }
+
+    .seat.sold {
+      border-color: gray;
+      color: gray;
+      cursor: not-allowed;
+      background-color: #ddd;
+    }
+
+    .legend {
+      margin-top: 30px;
+    }
+
+    .legend span {
+      margin-right: 20px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+      vertical-align: middle;
+      border: 1px solid #000;
+    }
+
+    .available { background-color: white; border: 2px solid green; }
+    .selected  { background-color: green; }
+    .sold      { background-color: gray; }
+  </style>
+</head>
+<body>
+  <h2>{{ movie_name }}</h2>
+  <p>DMAX DNC Theatres: Dharmapuri | Saturday, Jun 14, 2025, 01:30 PM</p>
+  <p style="color: red;">Adult Movie - Children below 18 years are not allowed.</p>
+
+  <!-- ELITE -->
+  <div class="category">
+    <div class="label">Rs. 250 ELITE</div>
+    <div class="row" data-row="A">
+      <div class="seat">1</div><div class="seat">2</div><div class="seat">3</div>
+      <div class="seat">4</div><div class="seat">5</div>
+      <div class="seat">6</div><div class="seat">7</div><div class="seat">8</div>
+      <div class="seat">9</div><div class="seat">10</div><div class="seat">11</div>
+      <div class="seat">12</div><div class="seat">13</div>
+    </div>
+  </div>
+
+  <!-- COUPLE -->
+  <div class="category">
+    <div class="label">Rs. 190 COUPLE</div>
+    <div class="row" data-row="B">
+      <div class="seat">1</div><div class="seat">2</div>
+      <div class="seat">3</div><div class="seat">4</div>
+      <div class="seat sold">5</div><div class="seat sold">6</div>
+      <div class="seat sold">7</div><div class="seat sold">8</div>
+      <div class="seat">11</div><div class="seat">12</div>
+    </div>
+    <div class="row" data-row="C">
+      <div class="seat">1</div><div class="seat">2</div>
+      <div class="seat">3</div><div class="seat">4</div>
+      <div class="seat sold">5</div><div class="seat sold">6</div>
+      <div class="seat sold">7</div><div class="seat sold">8</div>
+      <div class="seat">9</div><div class="seat">10</div>
+      <div class="seat">11</div><div class="seat">12</div>
+    </div>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="category">
+    <div class="label">Rs. 150 PREMIUM</div>
+    <div class="row" data-row="D">
+      <div class="seat sold">1</div><div class="seat">2</div><div class="seat">3</div>
+      <div class="seat">4</div><div class="seat">5</div><div class="seat">6</div><div class="seat">7</div>
+      <div class="seat">8</div><div class="seat sold">9</div><div class="seat sold">10</div>
+      <div class="seat sold">11</div><div class="seat">12</div><div class="seat">13</div><div class="seat">14</div>
+    </div>
+    <div class="row" data-row="E">
+      <div class="seat">1</div><div class="seat">2</div><div class="seat">3</div>
+      <div class="seat">4</div><div class="seat">5</div><div class="seat">6</div><div class="seat">7</div>
+      <div class="seat sold">8</div><div class="seat sold">9</div><div class="seat sold">10</div>
+      <div class="seat sold">11</div><div class="seat sold">12</div><div class="seat sold">13</div><div class="seat">14</div>
+    </div>
+  </div>
+
+  <!-- ECONOMY (for demonstration, only 1 row added) -->
+  <div class="category">
+    <div class="label">Rs. 190 ECONOMY</div>
+    <div class="row" data-row="F">
+      <div class="seat">1</div><div class="seat">2</div><div class="seat">3</div>
+      <div class="seat">4</div><div class="seat">5</div><div class="seat">6</div>
+      <div class="seat">7</div><div class="seat">8</div><div class="seat">9</div>
+      <div class="seat">10</div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span><span class="dot available"></span> Available</span>
+    <span><span class="dot selected"></span> Selected</span>
+    <span><span class="dot sold"></span> Sold</span>
+  </div>
+
+  <script>
+    const seats = document.querySelectorAll(".seat:not(.sold)");
+    seats.forEach(seat => {
+      seat.addEventListener("click", () => {
+        seat.classList.toggle("selected");
+      });
+    });
+  </script>
+</body>
+</html>

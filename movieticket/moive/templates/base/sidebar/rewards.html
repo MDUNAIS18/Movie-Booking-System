@@ -1,0 +1,85 @@
+
+
+{% block content %}
+<div class="rewards-wrapper">
+    <div class="main-content">
+        <h1>🎁 Rewards</h1>
+        <p>Check out your reward points, vouchers, and redeemable offers available for your next movie ticket purchase.</p>
+
+        <div class="rewards-grid">
+            <!-- Reward Points -->
+            <div class="reward-card points">
+                <h2>🏆 Reward Points</h2>
+                <p>You have <strong>320</strong> points</p>
+                <p>Earn more by booking tickets and inviting friends!</p>
+            </div>
+
+            <!-- Voucher -->
+            <div class="reward-card voucher">
+                <h2>🎟️ ₹50 Voucher</h2>
+                <p>Valid until: <strong>30 June 2025</strong></p>
+                <p>Use on your next booking over ₹200</p>
+            </div>
+
+            <!-- Offer -->
+            <div class="reward-card offer">
+                <h2>🔥 20% OFF</h2>
+                <p>On any movie ticket (max ₹100)</p>
+                <p>Use Code: <code>REWARD20</code></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .rewards-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 12px;
+        color: white;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .rewards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .reward-card {
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .reward-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .reward-card p {
+        margin: 6px 0;
+    }
+
+    .points {
+        border-left: 5px solid gold;
+    }
+
+    .voucher {
+        border-left: 5px solid #00bfff;
+    }
+
+    .offer {
+        border-left: 5px solid #ff4d4d;
+    }
+</style>
+{% endblock %}

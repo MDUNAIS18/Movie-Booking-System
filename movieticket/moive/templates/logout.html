@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out</title>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?exit,door');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.9);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #1976d2;
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        a:hover {
+            background-color: #125ea6;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>You have been logged out.</h2>
+        <p><a href="{% url 'login' %}">Login again</a></p>
+    </div>
+    <nav style="background-color: rgba(0, 0, 0, 0.7); padding: 15px; text-align: center;">
+    <a href="{% url 'home' %}" style="color:white; margin: 0 20px;">Home</a>
+    <a href="{% url 'movies' %}" style="color:white; margin: 0 20px;">Available Movies</a>
+    <a href="{% url 'book' %}" style="color:white; margin: 0 20px;">Book Ticket</a>
+    <a href="{% url 'cancel' %}" style="color:white; margin: 0 20px;">Cancel Ticket</a>
+    <a href="{% url 'logout' %}" style="color:white; margin: 0 20px;">Logout</a>
+</nav>
+{% include 'footer.html' %}
+
+</body>
+</html>
